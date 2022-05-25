@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HOC from "./HOC";
 
 const Person1 = ({ money, moneyIncreaseHandler }) => {
+  useEffect(() => {
+    console.log('Render')
+
+    return () => {
+      console.log('%cUnmount!!!', 'color: red', money)
+    }
+  }, [money])
 
   return (
     <div>
